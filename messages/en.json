@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Home",
+    "archive": "Archive",
+    "about": "About"
+  },
+  "home": {
+    "title": "Space Veille",
+    "subtitle": "Latest astronomy & space exploration news",
+    "searchPlaceholder": "Search articles...",
+    "noResults": "No articles found.",
+    "loadMore": "Load more",
+    "allCategories": "All"
+  },
+  "categories": {
+    "astronomy": "Astronomy",
+    "exploration": "Space Exploration",
+    "research": "Research",
+    "satellites": "Satellites",
+    "missions": "Missions"
+  },
+  "article": {
+    "readOriginal": "Read original article",
+    "publishedOn": "Published on",
+    "source": "Source",
+    "category": "Category",
+    "back": "Back"
+  },
+  "archive": {
+    "title": "Archive",
+    "subtitle": "Browse articles by date",
+    "noArticles": "No articles for this period."
+  },
+  "about": {
+    "title": "About",
+    "description": "Space Veille aggregates daily news on astronomy and space exploration from NASA, ESA, ArXiv, SpaceNews, Sky & Telescope, and the Spaceflight News API.",
+    "sources": "Data sources"
+  },
+  "footer": {
+    "tagline": "Aggregating the cosmos, daily.",
+    "rights": "All rights reserved."
+  },
+  "meta": {
+    "description": "Daily aggregated astronomy and space exploration news from NASA, ESA, ArXiv, SpaceNews, and Sky & Telescope."
+  }
+}

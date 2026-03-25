@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #080818;
+  --color-foreground: #e2e8f0;
+  --color-card: #0f0f2a;
+  --color-card-border: #1e1e4a;
+  --color-accent: #818cf8;
+  --color-accent-glow: #6366f1;
+  --color-muted: #64748b;
+  --color-cosmos-1: #818cf8;
+  --color-cosmos-2: #a78bfa;
+  --color-cosmos-3: #22d3ee;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #080818;
+  color: #e2e8f0;
+  font-family: "Inter", system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Starfield background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 35% 90%, rgba(255,255,255,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(2px 2px at 55% 10%, rgba(255,255,255,0.2) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+main, header, footer, nav {
+  position: relative;
+  z-index: 1;
+}
+
+/* Article card glow */
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15), 0 0 40px rgba(99, 102, 241, 0.05);
+}
+
+/* Category badge colors */
+.badge-astronomy { background-color: rgba(34, 211, 238, 0.15); color: #22d3ee; border-color: rgba(34,211,238,0.3); }
+.badge-exploration { background-color: rgba(129, 140, 248, 0.15); color: #818cf8; border-color: rgba(129,140,248,0.3); }
+.badge-research { background-color: rgba(167, 139, 250, 0.15); color: #a78bfa; border-color: rgba(167,139,250,0.3); }
+.badge-satellites { background-color: rgba(52, 211, 153, 0.15); color: #34d399; border-color: rgba(52,211,153,0.3); }
+.badge-missions { background-color: rgba(251, 191, 36, 0.15); color: #fbbf24; border-color: rgba(251,191,36,0.3); }
