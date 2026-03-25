@@ -3,28 +3,31 @@
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
-import { CATEGORIES } from "@/types/article";
 
-export default function CategoryFilter() {
-  const t = useTranslations("categories");
-  const tHome = useTranslations("home");
+const LANGS = [
+  { slug: "fr", labelKey: "langFr" as const },
+  { slug: "en", labelKey: "langEn" as const },
+];
+
+export default function LangFilter() {
+  const t = useTranslations("home");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const current = searchParams.get("category") ?? "all";
+  const current = searchParams.get("lang") ?? "all";
 
   function handleClick(slug: string) {
     const params = new URLSearchParams(searchParams.toString());
     if (slug === "all") {
-      params.delete("category");
+      params.delete("lang");
     } else {
-      params.set("category", slug);
+      params.set("lang", slug);
     }
     params.delete("page");
     router.push(`${pathname}?${params.toString()}`);
   }
 
-  const all = [{ slug: "all" as const, label: tHome("allCategories") }, ...CATEGORIES.map((c) => ({ slug: c.slug, label: t(c.slug) }))];
+  const all = [{ slug: "all", label: t("allLangs") }, ...LANGS.map((l) => ({ slug: l.slug, label: t(l.labelKey) }))];
 
   return (
     <div className="flex flex-wrap gap-2">
@@ -42,11 +45,13 @@ export default function CategoryFilter() {
               border: "1px solid",
               cursor: "pointer",
               transition: "all 0.15s",
-              background: isActive ? "#000000" : "#000000",
+              background: "#000000",
               color: isActive ? "#ffffff" : "#94a3b8",
               borderColor: isActive ? "#ffffff" : "#333333",
             }}
           >
+            {slug === "fr" && <span style={{ marginRight: "6px" }}>🇫🇷</span>}
+            {slug === "en" && <span style={{ marginRight: "6px" }}>🇬🇧</span>}
             {label}
           </button>
         );

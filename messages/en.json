@@ -10,7 +10,12 @@
     "searchPlaceholder": "Search articles...",
     "noResults": "No articles found.",
     "loadMore": "Load more",
-    "allCategories": "All"
+    "allCategories": "All",
+    "allLangs": "All languages",
+    "langFr": "French",
+    "langEn": "English",
+    "todayTitle": "News of the day",
+    "todayEmpty": "No articles published today."
   },
   "categories": {
     "astronomy": "Astronomy",

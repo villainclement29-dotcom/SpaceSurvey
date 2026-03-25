@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
+import { Tektur, Michroma } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+
+const tektur = Tektur({ subsets: ["latin"], variable: "--font-tektur" });
+const michroma = Michroma({ subsets: ["latin"], weight: "400", variable: "--font-michroma" });
 import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StarField from "@/components/StarField";
 
 export async function generateMetadata({
   params,
@@ -37,8 +42,9 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className={`${tektur.variable} ${michroma.variable}`}>
       <body>
+        <StarField />
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="min-h-screen">{children}</main>

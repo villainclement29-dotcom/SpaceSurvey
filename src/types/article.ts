@@ -15,6 +15,7 @@ export interface ArticleData {
   source: string;
   sourceFeed: string;
   category: string;
+  lang: string;
   fetchedAt: string;
 }
 
@@ -22,6 +23,7 @@ export interface FeedSource {
   name: string;
   url: string;
   defaultCategory: Category;
+  lang: "fr" | "en";
 }
 
 export const CATEGORIES: { slug: Category; labelEn: string; labelFr: string }[] = [

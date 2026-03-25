@@ -17,9 +17,11 @@ model Article {
   source      String
   sourceFeed  String
   category    String
+  lang        String   @default("en")
   fetchedAt   DateTime @default(now())
 
   @@index([publishedAt])
   @@index([category])
   @@index([source])
+  @@index([lang])
 }

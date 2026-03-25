@@ -31,21 +31,19 @@ export default function SearchBar() {
 
   return (
     <div style={{ position: "relative" }}>
-      <span style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "#475569", fontSize: "1rem" }}>
-        🔍
-      </span>
       <input
         type="text"
         defaultValue={searchParams.get("q") ?? ""}
         onChange={(e) => handleChange(e.target.value)}
         placeholder={t("searchPlaceholder")}
+        suppressHydrationWarning
         style={{
           width: "100%",
-          padding: "10px 16px 10px 38px",
-          background: "#0f0f2a",
-          border: "1px solid #1e1e4a",
+          padding: "10px 16px",
+          background: "#000000",
+          border: "1px solid #333333",
           borderRadius: "8px",
-          color: "#e2e8f0",
+          color: "#ffffff",
           fontSize: "0.9rem",
           outline: "none",
         }}

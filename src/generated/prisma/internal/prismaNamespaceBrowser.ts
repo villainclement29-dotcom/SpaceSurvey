@@ -77,6 +77,7 @@ export const ArticleScalarFieldEnum = {
   source: 'source',
   sourceFeed: 'sourceFeed',
   category: 'category',
+  lang: 'lang',
   fetchedAt: 'fetchedAt'
 } as const
 

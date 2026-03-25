@@ -30,6 +30,7 @@ export async function fetchNewsApi() {
     source: string;
     sourceFeed: string;
     category: string;
+    lang: string;
   }[] = [];
 
   try {
@@ -54,6 +55,7 @@ export async function fetchNewsApi() {
         source: article.source.name,
         sourceFeed: "https://newsapi.org",
         category: detectCategory(article.title, article.description),
+        lang: "en",
       });
     }
   } catch (err) {

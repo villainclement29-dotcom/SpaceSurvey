@@ -3,11 +3,18 @@ import { detectCategory } from "@/lib/categories";
 import type { FeedSource } from "@/types/article";
 
 export const RSS_SOURCES: FeedSource[] = [
-  { name: "NASA", url: "https://www.nasa.gov/news-release/feed/", defaultCategory: "missions" },
-  { name: "ESA", url: "https://www.esa.int/rssfeed/TopNews", defaultCategory: "exploration" },
-  { name: "SpaceNews", url: "https://spacenews.com/feed/", defaultCategory: "missions" },
-  { name: "ArXiv Astrophysics", url: "https://rss.arxiv.org/rss/astro-ph", defaultCategory: "research" },
-  { name: "Sky & Telescope", url: "https://www.skyandtelescope.com/astronomy-news/feed/", defaultCategory: "astronomy" },
+  // English sources
+  { name: "NASA", url: "https://www.nasa.gov/news-release/feed/", defaultCategory: "missions", lang: "en" },
+  { name: "ESA", url: "https://www.esa.int/rssfeed/TopNews", defaultCategory: "exploration", lang: "en" },
+  { name: "SpaceNews", url: "https://spacenews.com/feed/", defaultCategory: "missions", lang: "en" },
+  { name: "ArXiv Astrophysics", url: "https://rss.arxiv.org/rss/astro-ph", defaultCategory: "research", lang: "en" },
+  { name: "Sky & Telescope", url: "https://www.skyandtelescope.com/astronomy-news/feed/", defaultCategory: "astronomy", lang: "en" },
+  // French sources
+  { name: "Sciences et Avenir", url: "https://www.sciencesetavenir.fr/espace/rss.xml", defaultCategory: "astronomy", lang: "fr" },
+  { name: "Futura Sciences Espace", url: "https://www.futura-sciences.com/rss/espace/actualites.xml", defaultCategory: "astronomy", lang: "fr" },
+  { name: "Futura Sciences", url: "https://www.futura-sciences.com/rss/actualites.xml", defaultCategory: "astronomy", lang: "fr" },
+  { name: "Le Monde Sciences", url: "https://www.lemonde.fr/sciences/rss_full.xml", defaultCategory: "research", lang: "fr" },
+  { name: "ESA France", url: "https://www.esa.int/rss/France.xml", defaultCategory: "exploration", lang: "fr" },
 ];
 
 type CustomItem = {
@@ -35,6 +42,7 @@ export async function fetchRSSArticles() {
     source: string;
     sourceFeed: string;
     category: string;
+    lang: string;
   }[] = [];
 
   await Promise.allSettled(
@@ -59,6 +67,7 @@ export async function fetchRSSArticles() {
             source: source.name,
             sourceFeed: source.url,
             category: detectCategory(item.title, description) ?? source.defaultCategory,
+            lang: source.lang,
           });
         }
       } catch (err) {

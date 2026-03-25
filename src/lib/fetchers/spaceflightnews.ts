@@ -24,6 +24,7 @@ export async function fetchSpaceflightNews() {
     source: string;
     sourceFeed: string;
     category: string;
+    lang: string;
   }[] = [];
 
   try {
@@ -44,6 +45,7 @@ export async function fetchSpaceflightNews() {
         source: article.news_site,
         sourceFeed: "https://api.spaceflightnewsapi.net/v4/articles/",
         category: detectCategory(article.title, article.summary),
+        lang: "en",
       });
     }
   } catch (err) {

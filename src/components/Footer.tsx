@@ -16,26 +16,26 @@ export default function Footer() {
   const tAbout = useTranslations("about");
 
   return (
-    <footer style={{ background: "#080818", borderTop: "1px solid #1e1e4a", color: "#64748b" }}
+    <footer style={{ background: "#0d0c1d", borderTop: "1px solid #474973", color: "#474973" }}
       className="px-6 py-10 mt-16">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div>
-            <div style={{ color: "#818cf8", fontWeight: 700, fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+            <div style={{ color: "#f1dac4", fontWeight: 700, fontSize: "1.1rem", marginBottom: "0.5rem" }}>
               🌌 Space Veille
             </div>
             <p style={{ fontSize: "0.85rem" }}>{t("tagline")}</p>
           </div>
 
           <div>
-            <p style={{ color: "#94a3b8", fontSize: "0.8rem", fontWeight: 600, marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            <p style={{ color: "#f1dac4", fontSize: "0.8rem", fontWeight: 600, marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0.5 }}>
               {tAbout("sources")}
             </p>
             <div className="flex flex-wrap gap-3">
               {SOURCES.map((s) => (
                 <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer"
-                  style={{ fontSize: "0.8rem", color: "#64748b", textDecoration: "none" }}
-                  className="hover:text-indigo-400 transition-colors">
+                  style={{ fontSize: "0.8rem", color: "#474973", textDecoration: "none" }}
+                  className="hover:opacity-80 transition-opacity">
                   {s.name}
                 </a>
               ))}
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ borderTop: "1px solid #1e1e4a", marginTop: "2rem", paddingTop: "1.5rem", fontSize: "0.75rem", textAlign: "center" }}>
+        <div style={{ borderTop: "1px solid #474973", marginTop: "2rem", paddingTop: "1.5rem", fontSize: "0.75rem", textAlign: "center" }}>
           © {new Date().getFullYear()} Space Veille — {t("rights")}
         </div>
       </div>
