@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/db";
 import ArticleCard from "@/components/ArticleCard";
+import TodaySlider from "@/components/TodaySlider";
 import CategoryFilter from "@/components/CategoryFilter";
 import LangFilter from "@/components/LangFilter";
 import SearchBar from "@/components/SearchBar";
@@ -76,7 +77,7 @@ export default async function HomePage({ params, searchParams }: Props) {
   const hasMore = skip + articles.length < total;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10">
+    <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10">
       {/* Header */}
       <div className="mb-10">
         <h1 style={{ color: "#ffffff", fontSize: "2.5rem", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: "0.5rem" }}>
@@ -113,11 +114,18 @@ export default async function HomePage({ params, searchParams }: Props) {
             {t("todayEmpty")}
           </p>
         ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "2rem" }}>
-            {serializedToday.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
+          <>
+            {/* Mobile: slider */}
+            <div className="md:hidden">
+              <TodaySlider articles={serializedToday} />
+            </div>
+            {/* Desktop: grid */}
+            <div className="hidden md:grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "2rem" }}>
+              {serializedToday.map((article) => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
+            </div>
+          </>
         )}
       </section>
 
